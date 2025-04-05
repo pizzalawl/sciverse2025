@@ -4,7 +4,6 @@ import random
 
 env = gym.make("Taxi-v3")
 q_table = np.zeros((env.observation_space.n, env.action_space.n))
-print(env.observation_space.n)
 
 #hyperparameters
 epsilon = 0.5
@@ -21,22 +20,24 @@ state, info = env.reset(seed=42)
 for episode in range(max_episodes):
     state, info = env.reset()
     for step in range(max_steps):
+        #generate a random number and see if it passes the epsilon threshold
         if random.uniform(0, 1) < epsilon:
+            #pick a random action
             action = env.action_space.sample()
         else:
+            #pick the action with the most value on that state in the q_table
             action = np.argmax(q_table[state, :])
 
         new_state, reward, done, truncated, info = env.step(action)
 
-        #update epsilon, state, and q_table
+        #update state and q_table item
         q_table[state, action] = q_table[state, action] + learning_rate * (reward + discount_factor * np.max(q_table[new_state, :])-q_table[state, action])
         state = new_state
 
-        print(reward)
-
+        #check if the episode is done
         if done or truncated:
             break
-    print("episode done")
+    #decay epsilon threshold
     epsilon = min_epsilon+(max_epsilon-min_epsilon)*np.exp(-decay*episode)
 env.close()
 
