@@ -2,6 +2,7 @@ import gymnasium as gym
 import numpy as np
 import matplotlib.pyplot as plt
 import random
+import sys
 
 env = gym.make("Taxi-v3")
 q_table = np.zeros((env.observation_space.n, env.action_space.n))
@@ -13,7 +14,7 @@ min_epsilon = 0.1
 decay = 0.01
 learning_rate = 0.7
 discount_factor = 0.618
-max_episodes = 500
+max_episodes = int(sys.argv[1])
 max_steps = 100
 training_rewards = []
 total_training_rewards = 0
