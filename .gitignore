@@ -1,2 +1,2 @@
 .venv
-*.zip
+pretrained/mario/ppo_mario.zip
