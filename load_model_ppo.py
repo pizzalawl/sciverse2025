@@ -1,7 +1,7 @@
+import sys
 import gymnasium as gym
 from stable_baselines3 import PPO
 import ale_py
-import sys
 
 gym.register_envs(ale_py)
 env = gym.make(sys.argv[1], render_mode="human")

@@ -1,3 +1,17 @@
-python load_model.py LunarLander-v3 pretrained/lunar/ppo_lunar.zip 2000
-python load_model.py ALE/Tetris-v5 pretrained/tetris/ppo_tetris.zip 2000
-python load_model.py ALE/MarioBros-v5 pretrained/mario/ppo_mario.zip 2000
+#Loading Models
+python load_model_ppo.py LunarLander-v3 pretrained/lunar/ppo_lunar_10000.zip 2000
+python load_model_ppo.py ALE/Tetris-v5 pretrained/tetris/ppo_tetris_10000.zip 2000
+python load_model_ppo.py ALE/MarioBros-v5 pretrained/mario/ppo_mario_10000.zip 2000
+
+python load_model_a2c.py LunarLander-v3 pretrained/lunar/a2c_lunar_10000.zip 2000
+python load_model_a2c.py ALE/Tetris-v5 pretrained/tetris/a2c_tetris_10000.zip 2000
+python load_model_a2c.py ALE/MarioBros-v5 pretrained/mario/a2c_mario_10000.zip 2000
+
+#Training Models
+python training/ppo/train_mario_ppo.py 10000 pretrained/mario/ppo_mario_10000.zip
+python training/ppo/train_tetris_ppo.py 10000 pretrained/tetris/ppo_tetris_10000.zip
+python training/ppo/train_lunar_ppo.py 10000 pretrained/lunar/ppo_lunar_10000.zip
+
+python training/a2c/train_mario_a2c.py 10000 pretrained/mario/a2c_mario_10000.zip
+python training/a2c/train_tetris_a2c.py 10000 pretrained/tetris/a2c_tetris_10000.zip
+python training/a2c/train_lunar_a2c.py 10000 pretrained/lunar/a2c_lunar_10000.zip
