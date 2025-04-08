@@ -2,7 +2,6 @@ import gymnasium as gym
 import ale_py
 import sys
 from stable_baselines3 import PPO
-
 gym.register_envs(ale_py)
 
 env = gym.make("ALE/Tetris-v5", render_mode="human")
