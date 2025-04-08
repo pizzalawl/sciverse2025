@@ -10,7 +10,7 @@ model = PPO.load(sys.argv[2], env=env)
 
 vec_env = model.get_env()
 obs = vec_env.reset()
-for i in range(sys.argv[3]):
+for i in range(int(sys.argv[3])):
     action, _states = model.predict(obs, deterministic=True)
     obs, rewards, dones, info = vec_env.step(action)
     vec_env.render("human")

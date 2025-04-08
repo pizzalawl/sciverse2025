@@ -1,2 +1,4 @@
 .venv
 pretrained/mario/ppo_mario.zip
+pretrained/lunar/ppo_lunar.zip
+pretrained/tetris/ppo_tetris.zip

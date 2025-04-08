@@ -1,0 +1,3 @@
+python load_model.py LunarLander-v3 pretrained/lunar/ppo_lunar.zip 2000
+python load_model.py ALE/Tetris-v5 pretrained/tetris/ppo_tetris.zip 2000
+python load_model.py ALE/MarioBros-v5 pretrained/mario/ppo_mario.zip 2000
